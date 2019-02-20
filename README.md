@@ -1,3 +1,6 @@
+# Instructions
+Copy the code in the file of the module that you want to use to a new save in Adventure Land, next use `load_code` to load the module.
+
 # Modules
 * [Folders](#folders)
 * [Custom Buttons](#custom-buttons)
