@@ -1,5 +1,5 @@
 # Instructions
-Copy the code in the file of the module that you want to use to a new save in Adventure Land, next use `load_code` to load the module.
+Copy the code in the file of the module that you want to use to a new save in Adventure Land, next use `load_code` (not inside a loop) to load the module (i.e.: Save the Folder.js file under the name FolderModule and in your main code you have `load_code('FolderModule')`).
 
 # Modules
 * [Folders](#folders)
