@@ -33,7 +33,9 @@ function enable_folders() {
 				d += "<div style='margin: 10px 5px 5px 5px; font-size: 24px; line-height: 28px'>";
 				d += "<div>You can also load code's into your code. For example, you can save your 'Functions' in one code slot, let's say 2, and inside your first code slot, you can: <span class='label' style='height: 24px; margin: -2px 0px 0px 0px;'>load_code(2)</span> or <span class='label' style='height: 24px; margin: -2px 0px 0px 0px;'>load_code('Functions')</span></div>";
 				d += "</div>";
-				parent.show_modal(d);
+				parent.show_modal(d, {
+				    keep_code: true
+				});
 			} else if (info.purpose == 'save') {
 				let path = info.path || '';
 				let d = '';
@@ -78,7 +80,9 @@ function enable_folders() {
 				d += "<div style='margin: 10px 5px 5px 5px; font-size: 24px; line-height: 28px'>";
 				d += "</div>";
 				d = d.replace('FOLDERSJSON', JSON.stringify(folders));
-				parent.show_modal(d);
+				parent.show_modal(d, {
+				    keep_code: true
+				});
 			} else {
 				parent._handle_information(g);
 			}
@@ -115,7 +119,9 @@ function enable_folders() {
 	function override_modal(on_yes=()=>{}, on_no=()=>{}) {
 		const v = parent.$('.csharp').val();
 		if (parent.$('.codename').val() != 'DELETE' && parent.code_list[v]) {
-			parent.show_modal(`<div class='gamebutton' style='display:block;border:none'>Index ${v} is already in use by script '${parent.code_list[v]}'.</div><div class='gamebutton' style='box-sizing: border-box; width: 50%; padding: 8px' onclick="(${on_yes})();parent.hide_modal()">REPLACE</div><div class='gamebutton' style='box-sizing: border-box; width: 50%; padding: 8px' onclick='(${on_no})();parent.hide_modal()'>CANCEL</div>`);
+			parent.show_modal(`<div class='gamebutton' style='display:block;border:none'>Index ${v} is already in use by script '${parent.code_list[v]}'.</div><div class='gamebutton' style='box-sizing: border-box; width: 50%; padding: 8px' onclick="(${on_yes})();parent.hide_modal()">REPLACE</div><div class='gamebutton' style='box-sizing: border-box; width: 50%; padding: 8px' onclick='(${on_no})();parent.hide_modal()'>CANCEL</div>`, {
+			    keep_code: true
+			});
 		} else {
 			on_yes();
 		}
