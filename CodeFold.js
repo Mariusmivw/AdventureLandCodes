@@ -1,5 +1,5 @@
 function enable_fold() {
-	if (game.graphics) {
+	if (game.html) {
 		const document = parent.document;
 		if (!parent.$(`link[href="https://codemirror.net/addon/fold/foldgutter.css"]`).get(0)) {
 			const link = document.createElement('link');
@@ -57,7 +57,7 @@ function enable_fold() {
 }
 
 function disable_fold() {
-	if(game.graphics) {
+	if(game.html) {
 		parent.codemirror_render.setOption('foldGutter', false);
 		parent.$('.CodeMirror-foldgutter').css('display', 'none');
 	}
